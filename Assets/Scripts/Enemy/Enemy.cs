@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
-    [SerializeField] private Player _target;
+    
+    private Player _target;
 
     public Player Target => _target;
     public int Reward => _reward;
