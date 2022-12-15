@@ -5,9 +5,15 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Bullet _bullet;
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private Transform _targetPoint;
     [SerializeField] private float _shootSpeed;
+    [SerializeField] private ShootPoint _startShootPoint;
+
+    private List<ShootPoint> _shootPoints = new List<ShootPoint>();
+
+    private void Awake()
+    {
+        _shootPoints.Add(_startShootPoint);
+    }
 
     private void Start()
     {
@@ -16,18 +22,28 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ShootCorutine()
     {
+        float delayStep = 0.2f;
+        WaitForSeconds delay = new WaitForSeconds(delayStep);
+
         while (true)
         {
-            float delay = 0.2f;
             Shoot();
-            yield return new WaitForSeconds(delay);
+            yield return delay;
         }
     }
 
     private void Shoot()
     {
-        Bullet currentBullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
-        Vector3 direction = _targetPoint.position - _shootPoint.position;
-        currentBullet.Rigidbody.AddForce(direction.normalized * _shootSpeed, ForceMode.Impulse);
+        for (int i = 0; i < _shootPoints.Count; i++)
+        {
+            Bullet currentBullet = Instantiate(_bullet, _shootPoints[i].transform.position, Quaternion.identity);
+            Vector3 direction = _shootPoints[i].TargetPoint.position - _shootPoints[i].transform.position;
+            currentBullet.Rigidbody.AddForce(direction.normalized * _shootSpeed, ForceMode.Impulse);
+        }        
+    }
+
+    private void Add(List<ShootPoint> shootPoints)
+    {
+        _shootPoints.AddRange(shootPoints);
     }
 }

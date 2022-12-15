@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Bullet : MonoBehaviour
+public class FireBall : MonoBehaviour
 {
     [SerializeField] private int _damage;
 
@@ -16,9 +16,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out IDamageable damageable))
+        if (other.gameObject.TryGetComponent(out Player player))
         {
-            damageable.ApplyDamage(_damage);
+            player.ApplyDamage(_damage);
             Destroy(gameObject);
         }
 
