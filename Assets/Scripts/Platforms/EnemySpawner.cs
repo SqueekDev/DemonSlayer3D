@@ -5,19 +5,20 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<Enemy> _templates;
-    [SerializeField] private SpawnTrigger _trigger;
-    [SerializeField] private Player _player;
+    [SerializeField] private PlatformTrigger _trigger;
     [SerializeField] private float _delayBetweenSpawn;
     [SerializeField] private int _count;
+
+    private Player _player;
 
     private void OnEnable()
     {
         _trigger.Activated += OnTriggerActivated;
     }
 
-    private void OnDisable()
+    public void InitPlayer(Player player)
     {
-        _trigger.Activated -= OnTriggerActivated;
+        _player = player;
     }
 
     private IEnumerator InstantiateEnemies()
@@ -36,5 +37,6 @@ public class EnemySpawner : MonoBehaviour
     private void OnTriggerActivated()
     {
         StartCoroutine(InstantiateEnemies());
+        _trigger.Activated -= OnTriggerActivated;
     }
 }

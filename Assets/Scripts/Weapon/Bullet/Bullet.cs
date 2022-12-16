@@ -5,13 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    [SerializeField] private int _startDamage;
+
+    private int _damage;
 
     public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
         Rigidbody = GetComponent<Rigidbody>();
+        _damage = _startDamage;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,5 +29,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDamageUpgraded(int damageModifier)
+    {
+        _damage = _startDamage * damageModifier;
     }
 }
