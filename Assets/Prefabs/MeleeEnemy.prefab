@@ -119,7 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _reward: 0
-  _target: {fileID: 623103380960769807, guid: 298dbafd693c11d4bb68402d5dae52da, type: 3}
 --- !u!114 &2447184187608172631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2447184187608172628}
   _transitionRange: 1
-  _rangeSpread: 0.5
+  _rangeSpread: 0.1
 --- !u!114 &2447184187608172628
 MonoBehaviour:
   m_ObjectHideFlags: 0
