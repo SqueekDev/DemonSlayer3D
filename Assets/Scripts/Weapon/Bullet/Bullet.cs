@@ -7,21 +7,21 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private int _startDamage;
 
-    private int _damage;
+    protected int Damage;
 
     public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
         Rigidbody = GetComponent<Rigidbody>();
-        _damage = _startDamage;
+        Damage = _startDamage;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.ApplyDamage(_damage);
+            damageable.ApplyDamage(Damage);
             Destroy(gameObject);
         }
 
@@ -33,6 +33,6 @@ public class Bullet : MonoBehaviour
 
     private void OnDamageUpgraded(int damageModifier)
     {
-        _damage = _startDamage * damageModifier;
+        Damage = _startDamage * damageModifier;
     }
 }
