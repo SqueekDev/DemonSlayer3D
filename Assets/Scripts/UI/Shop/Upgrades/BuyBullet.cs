@@ -14,7 +14,7 @@ public class BuyBullet : MonoBehaviour
 
     public int Cost => _cost;
 
-    public event UnityAction<Bullet> BulleBuyed;
+    public event UnityAction<Bullet> BulletBuyed;
 
     private void OnEnable()
     {
@@ -38,9 +38,9 @@ public class BuyBullet : MonoBehaviour
 
     private void OnClick()
     {
-        _upgradeButton.enabled = true;
-        _buyButton.enabled = false;
+        _upgradeButton.gameObject.SetActive(true);
+        _buyButton.gameObject.SetActive(false);
         _player.ReducePoints(Cost);
-        BulleBuyed?.Invoke(_bullet);
+        BulletBuyed?.Invoke(_bullet);
     }
 }

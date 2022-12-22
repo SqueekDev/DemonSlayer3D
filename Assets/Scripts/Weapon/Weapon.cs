@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < _buyBullets.Count; i++)
         {
-            _buyBullets[i].BulleBuyed += OnBulletBuyed;
+            _buyBullets[i].BulletBuyed += OnBulletBuyed;
         }
     }
 
@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < _buyBullets.Count; i++)
         {
-            _buyBullets[i].BulleBuyed -= OnBulletBuyed;
+            _buyBullets[i].BulletBuyed -= OnBulletBuyed;
         }
     }
 
