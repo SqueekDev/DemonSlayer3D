@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private Weapon _weapon;
     [SerializeField] private List<Upgrade> _upgrades;
     [SerializeField] private List<BuyBullet> _buyBullets;
+    [SerializeField] private List<ShootingMode> _shootingModes;
 
     private void OnEnable()
     {
@@ -44,6 +45,18 @@ public class Shop : MonoBehaviour
             else
             {
                 _buyBullets[i].DeactivateButton();
+            }
+        }
+
+        for (int i = 0; i < _shootingModes.Count; i++)
+        {
+            if (points >= _shootingModes[i].Cost)
+            {
+                _shootingModes[i].ActivateButton();
+            }
+            else
+            {
+                _shootingModes[i].DeactivateButton();
             }
         }
     }

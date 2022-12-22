@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private ShootPoint _startShootPoint;
     [SerializeField] private List<Bullet> _bullets;
     [SerializeField] private List<BuyBullet> _buyBullets;
+    [SerializeField] private List<ShootingMode> _shootingModes;
 
     private int _currentBulletNumber = 0;
     private Bullet _currentBullet;
@@ -17,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        Add(_startShootPoint);
+        _shootPoints.Add(_startShootPoint);
         ChangeBullet(_bullets[_currentBulletNumber]);
     }
 
@@ -29,6 +30,11 @@ public class Weapon : MonoBehaviour
         {
             _buyBullets[i].BulletBuyed += OnBulletBuyed;
         }
+
+        for (int i = 0; i < _shootingModes.Count; i++)
+        {
+            _shootingModes[i].ShootingModeUpgraded += Add;
+        }
     }
 
     private void OnDisable()
@@ -38,6 +44,11 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < _buyBullets.Count; i++)
         {
             _buyBullets[i].BulletBuyed -= OnBulletBuyed;
+        }
+
+        for (int i = 0; i < _shootingModes.Count; i++)
+        {
+            _shootingModes[i].ShootingModeUpgraded -= Add;
         }
     }
 
@@ -71,11 +82,6 @@ public class Weapon : MonoBehaviour
     private void Add(List<ShootPoint> shootPoints)
     {
         _shootPoints.AddRange(shootPoints);
-    }
-
-    private void Add(ShootPoint shootPoint)
-    {
-        _shootPoints.Add(shootPoint);
     }
 
     private void OnBulletChange()

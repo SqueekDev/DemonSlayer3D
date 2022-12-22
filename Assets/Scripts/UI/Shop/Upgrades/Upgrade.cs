@@ -61,7 +61,7 @@ public abstract class Upgrade : MonoBehaviour
 
         if (_currentLevel >= _maxLevel)
         {
-            _button.enabled = false;
+            _button.gameObject.SetActive(false);
             MaxLevelAchieved = true;
         }
         else
