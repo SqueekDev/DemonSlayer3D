@@ -257,8 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _reward: 0
-  _target: {fileID: 623103380960769807, guid: 298dbafd693c11d4bb68402d5dae52da, type: 3}
+  _reward: 100
 --- !u!114 &3716094799258144640
 MonoBehaviour:
   m_ObjectHideFlags: 0

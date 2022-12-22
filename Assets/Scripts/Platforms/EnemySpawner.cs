@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
             Enemy template = _templates[Random.Range(0, _templates.Count)];
             Enemy enemy = Instantiate(template, transform.position, Quaternion.identity);
             enemy.Init(_player);
+            enemy.Dying += OnEnemyDied;
             yield return delay;
         }
     }
@@ -38,5 +39,12 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(InstantiateEnemies());
         _trigger.Activated -= OnTriggerActivated;
+    }
+
+    private void OnEnemyDied(Enemy enemy)
+    {
+        enemy.Dying -= OnEnemyDied;
+
+        _player.AddExpirience(enemy.Reward);
     }
 }

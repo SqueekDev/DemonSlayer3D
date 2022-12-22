@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _reward: 0
+  _reward: 50
 --- !u!114 &2447184187608172631
 MonoBehaviour:
   m_ObjectHideFlags: 0

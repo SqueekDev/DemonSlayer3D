@@ -5,13 +5,13 @@ using UnityEngine;
 public class IceBullet : Bullet
 {
     [SerializeField] private int _freezingModifier;
-    [SerializeField] private float _startFreezingTime;
+    [SerializeField] private int _startFreezingTime;
 
-    private float _freezingTime;
+    private int _freezingTime;
 
     private void Start()
     {
-        _freezingTime = _startFreezingTime;
+        _freezingTime = _startFreezingTime + Player.IceBulletModifier;
     }
 
     protected override void OnTriggerEnter(Collider other)

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FireBullet : Bullet
 {
-    [SerializeField] private float _startBurningTime;
+    [SerializeField] private int _startBurningTime;
     [SerializeField] private int _burningDamageModifier;
 
-    private float _burningTime;
+    private int _burningTime;
 
     private void Start()
     {
-        _burningTime = _startBurningTime;
+        _burningTime = _startBurningTime * Player.FireBulletModifier;
     }
 
     protected override void OnTriggerEnter(Collider other)
