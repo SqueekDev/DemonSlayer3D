@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Weapon _weapon;
-    [SerializeField] private List<Upgrade> _upgrades;
-    [SerializeField] private List<BuyBullet> _buyBullets;
-    [SerializeField] private List<ShootingMode> _shootingModes;
+    [SerializeField] private List<ButtonActivator> _buttons;
 
     private void OnEnable()
     {
@@ -24,39 +21,15 @@ public class Shop : MonoBehaviour
 
     private void OnUpgradePointsChanged(int points)
     {
-        for (int i = 0; i < _upgrades.Count; i++)
+        for (int i = 0; i < _buttons.Count; i++)
         {
-            if (points >= _upgrades[i].Cost)
+            if (points >= _buttons[i].Cost)
             {
-                _upgrades[i].ActivateButton();
+                _buttons[i].ActivateButton();
             }
             else
             {
-                _upgrades[i].DeactivateButton();
-            }
-        }
-
-        for (int i = 0; i < _buyBullets.Count; i++)
-        {
-            if (points >= _buyBullets[i].Cost)
-            {
-                _buyBullets[i].ActivateButton();
-            }
-            else
-            {
-                _buyBullets[i].DeactivateButton();
-            }
-        }
-
-        for (int i = 0; i < _shootingModes.Count; i++)
-        {
-            if (points >= _shootingModes[i].Cost)
-            {
-                _shootingModes[i].ActivateButton();
-            }
-            else
-            {
-                _shootingModes[i].DeactivateButton();
+                _buttons[i].DeactivateButton();
             }
         }
     }

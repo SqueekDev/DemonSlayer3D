@@ -156,7 +156,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -231,7 +231,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.25
+  m_fontSize: 10.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -496,10 +496,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c1f44b2e233384fa66927e1dfefaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 1
+  _button: {fileID: 1970820185}
+  _cost: 1
   _upgradeValue: 50
   _maxLevel: 100
-  _button: {fileID: 1970820185}
   _slider: {fileID: 1136204840}
   _level: {fileID: 829651238}
   _player: {fileID: 1694817756039211312}
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 20.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.5
+  m_fontSize: 5.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 16.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 20.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.45
+  m_fontSize: 5.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.3
+  m_fontSize: 28.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 18.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.7
+  m_fontSize: 20.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3005,8 +3005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4207924e91d4744c80907c552bd9bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 722453675}
   _cost: 5
-  _buyButton: {fileID: 722453675}
   _upgradeButton: {fileID: 1118940262}
   _bullet: {fileID: 8806924436627420013, guid: ee855c8926be31f42b5465136f0e1bcb, type: 3}
   _player: {fileID: 1694817756039211312}
@@ -3022,10 +3022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de6f6ee6ef10ba468132f907f496676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 2
+  _button: {fileID: 1118940262}
+  _cost: 2
   _upgradeValue: 1
   _maxLevel: 1
-  _button: {fileID: 1118940262}
   _slider: {fileID: 1147371139}
   _level: {fileID: 675236354}
   _player: {fileID: 1694817756039211312}
@@ -3599,7 +3599,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.15
+  m_fontSize: 30.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3733,7 +3733,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.45
+  m_fontSize: 5.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3988,7 +3988,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.2
+  m_fontSize: 15.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.7
+  m_fontSize: 6.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4863,7 +4863,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 16.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5321,8 +5321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4207924e91d4744c80907c552bd9bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1435838531}
   _cost: 5
-  _buyButton: {fileID: 1435838531}
   _upgradeButton: {fileID: 990377095}
   _bullet: {fileID: 6050707032642327642, guid: 83ea8f4bed445a442a5e14a5350d9073, type: 3}
   _player: {fileID: 1694817756039211312}
@@ -5338,10 +5338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9b275cf28b4ae4d9f1a72625e3cc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 2
+  _button: {fileID: 990377095}
+  _cost: 2
   _upgradeValue: 1
   _maxLevel: 1
-  _button: {fileID: 990377095}
   _slider: {fileID: 254653299}
   _level: {fileID: 1204665218}
   _player: {fileID: 1694817756039211312}
@@ -5429,7 +5429,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 20.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5533,7 +5533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &896859881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5627,21 +5627,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1694817756039211312}
   _weapon: {fileID: 1029836522}
-  _upgrades:
+  _buttons:
   - {fileID: 90919647}
   - {fileID: 1709982849}
   - {fileID: 1012379459}
   - {fileID: 1860399329}
-  - {fileID: 520692779}
-  - {fileID: 870550162}
-  - {fileID: 1490081254}
-  _buyBullets:
   - {fileID: 520692778}
   - {fileID: 870550161}
   - {fileID: 1490081253}
-  _shootingModes:
   - {fileID: 1369556920}
   - {fileID: 1247342354}
+  - {fileID: 520692779}
+  - {fileID: 870550162}
+  - {fileID: 1490081254}
 --- !u!1 &899680831
 GameObject:
   m_ObjectHideFlags: 0
@@ -6540,10 +6538,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9600428dc6a434997c46817bd698b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 1
+  _button: {fileID: 548315435}
+  _cost: 1
   _upgradeValue: 10
   _maxLevel: 100
-  _button: {fileID: 548315435}
   _slider: {fileID: 1964937372}
   _level: {fileID: 1015589595}
   _player: {fileID: 1694817756039211312}
@@ -6631,7 +6629,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 20
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6917,7 +6915,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.2
+  m_fontSize: 15.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7647,7 +7645,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.15
+  m_fontSize: 11.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8036,7 +8034,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.2
+  m_fontSize: 15.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8176,8 +8174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6026882e9bac733438ce59687d1e5fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cost: 5
   _button: {fileID: 661304853}
+  _cost: 5
   _player: {fileID: 1694817756039211312}
   _shootPoints:
   - {fileID: 1894770430}
@@ -8496,7 +8494,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.6
+  m_fontSize: 15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8636,8 +8634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6026882e9bac733438ce59687d1e5fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cost: 10
   _button: {fileID: 1184911486}
+  _cost: 10
   _player: {fileID: 1694817756039211312}
   _shootPoints:
   - {fileID: 1266334830}
@@ -9110,7 +9108,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9242,8 +9240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4207924e91d4744c80907c552bd9bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 273868741}
   _cost: 4
-  _buyButton: {fileID: 273868741}
   _upgradeButton: {fileID: 1142871926}
   _bullet: {fileID: 874637381396088292, guid: ab6e5a6614c7cc44db886f22168f0eaf, type: 3}
   _player: {fileID: 1694817756039211312}
@@ -9259,10 +9257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4264e2ff3442f14890d767acaabe5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 3
+  _button: {fileID: 1142871926}
+  _cost: 2
   _upgradeValue: 1
   _maxLevel: 1
-  _button: {fileID: 1142871926}
   _slider: {fileID: 456038021}
   _level: {fileID: 1106746170}
   _player: {fileID: 1694817756039211312}
@@ -10074,7 +10072,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.05
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10243,7 +10241,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 16.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10327,7 +10325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2257257, y: 0.20131972}
   m_AnchorMax: {x: 0.7992086, y: 0.79868025}
-  m_AnchoredPosition: {x: -0.5, y: 0}
+  m_AnchoredPosition: {x: -0.5000005, y: 0}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706652975
@@ -10457,10 +10455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b83ceeb8726b55143a4ac13006d32adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 1
+  _button: {fileID: 867725792}
+  _cost: 1
   _upgradeValue: 5
   _maxLevel: 3
-  _button: {fileID: 867725792}
   _slider: {fileID: 1446880013}
   _level: {fileID: 270469584}
   _player: {fileID: 1694817756039211312}
@@ -10533,7 +10531,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10884,7 +10882,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.65
+  m_fontSize: 15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11200,10 +11198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122d095726321b04abda4d66bb2f67d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCost: 1
+  _button: {fileID: 455462459}
+  _cost: 1
   _upgradeValue: 5
   _maxLevel: 3
-  _button: {fileID: 455462459}
   _slider: {fileID: 899680833}
   _level: {fileID: 1686776113}
   _player: {fileID: 1694817756039211312}
@@ -11402,7 +11400,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
+  m_fontSize: 20.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11536,7 +11534,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.3
+  m_fontSize: 10.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11756,7 +11754,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.6
+  m_fontSize: 6.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11972,7 +11970,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12098,7 +12096,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.5
+  m_fontSize: 5.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12271,7 +12269,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.4, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12553,7 +12551,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12754,7 +12752,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.65
+  m_fontSize: 10
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12838,7 +12836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2257257, y: 0.17500001}
   m_AnchorMax: {x: 0.7992086, y: 0.8}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.5000005, y: 0.5}
   m_SizeDelta: {x: 2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049215044
