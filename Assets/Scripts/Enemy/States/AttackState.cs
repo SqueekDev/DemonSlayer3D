@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(Enemy))]
 public class AttackState : EnemyState
 {
-    [SerializeField] private int _damage;
-    [SerializeField] private float _delay;
-
     private float _lastAttackTime;
     private float _angle;
+    private Enemy _stats;
 
     protected Animator Animator;
 
     private void Start()
     {
         Animator = GetComponent<Animator>();
+        _stats = GetComponent<Enemy>();
     }
 
     private void Update()
@@ -24,7 +23,7 @@ public class AttackState : EnemyState
         if (_lastAttackTime <= 0)
         {
             Attack(Target);
-            _lastAttackTime = _delay;
+            _lastAttackTime = _stats.CurrentAttackDelay;
         }
 
         _lastAttackTime -= Time.deltaTime;
@@ -34,7 +33,7 @@ public class AttackState : EnemyState
     protected virtual void Attack(Player target)
     {
         Animator.Play("Attack");
-        target.ApplyDamage(_damage);
+        target.ApplyDamage(_stats.CurrentDamage);
     }
 
     private void RotateToPlayer()

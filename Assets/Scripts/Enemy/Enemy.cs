@@ -9,30 +9,43 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
+    [SerializeField] private int _startDamage;
+    [SerializeField] private float _startAttackDelay;
     
     private Player _target;
+    private WorldBuilder _worldBuilder;
     private NavMeshAgent _navMeshAgent;
     private Coroutine _burnCorutine;
     private Coroutine _freezeCorutine;
-    private float _startSpeed;
+    
+    protected float CurrentSpeed;
 
     public Player Target => _target;
     public int Reward => _reward;
+    public int CurrentHealth => _health;
+    public int CurrentDamage { get; protected set; }
+    public float CurrentAttackDelay { get; protected set; }
+    public int MaxHealth { get; private set; }
 
     public event UnityAction<Enemy> Dying;
 
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _startSpeed = _navMeshAgent.speed;
+        CurrentAttackDelay = _startAttackDelay;
+        CurrentSpeed = _navMeshAgent.speed;
     }
 
-    public void Init(Player target)
+    public void Init(Player target, WorldBuilder worldBuilder)
     {
         _target = target;
+        _worldBuilder = worldBuilder;
+        CurrentDamage = _startDamage * _worldBuilder.StatsModifier;
+        _health *= _worldBuilder.StatsModifier;
+        MaxHealth = _health;
     }
 
-    public void ApplyDamage(int damage)
+    public virtual void ApplyDamage(int damage)
     {
         _health -= damage;
 
@@ -77,8 +90,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private IEnumerator Freezing(float freezingTime, float freezingModifier)
     {
-        _navMeshAgent.speed = _startSpeed / freezingModifier;
+        _navMeshAgent.speed = CurrentSpeed / freezingModifier;
         yield return new WaitForSeconds(freezingTime);
-        _navMeshAgent.speed = _startSpeed;
+        _navMeshAgent.speed = CurrentSpeed;
     }
 }

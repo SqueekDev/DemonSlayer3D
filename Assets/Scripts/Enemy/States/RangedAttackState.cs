@@ -11,7 +11,7 @@ public class RangedAttackState : AttackState
     protected override void Attack(Player target)
     {
         Animator.Play("Attack");
-        FireBall currentFireBall = Instantiate(_fireBall, _attackPoint.transform.position, Quaternion.identity);
+        FireBall currentFireBall = Instantiate(_fireBall, _attackPoint.transform.position, Quaternion.identity, transform);
         Vector3 direction = target.transform.position - _attackPoint.transform.position;
         currentFireBall.Rigidbody.AddForce(direction.normalized * _ballSpeed, ForceMode.Impulse);
     }

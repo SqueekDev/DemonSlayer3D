@@ -26,6 +26,7 @@ public class EnemyStateMachine : MonoBehaviour
         }
 
         var nextState = _currentState.GetNextState();
+
         if (nextState != null)
         {
             Transit(nextState);

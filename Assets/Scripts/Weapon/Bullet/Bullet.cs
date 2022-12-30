@@ -5,8 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private Sprite _icon;
+
     protected Player Player;
 
+    public Sprite Icon => _icon;
     public int Damage { get; private set; }
     public Rigidbody Rigidbody { get; private set; }
 

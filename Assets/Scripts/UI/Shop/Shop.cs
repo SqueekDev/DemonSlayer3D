@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private Weapon _weapon;
     [SerializeField] private List<ButtonActivator> _buttons;
 
     private void OnEnable()

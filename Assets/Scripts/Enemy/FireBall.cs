@@ -5,20 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FireBall : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    private Enemy _stats;
 
     public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
         Rigidbody = GetComponent<Rigidbody>();
+        _stats = GetComponentInParent<Enemy>();
+        transform.parent = null;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(_damage);
+            player.ApplyDamage(_stats.CurrentDamage);
             Destroy(gameObject);
         }
 

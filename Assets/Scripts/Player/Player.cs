@@ -66,9 +66,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void AddHealth(int value)
+    {
+        int percentModifier = 100;
+        _currentHealth += value * CurrentLifesteal / percentModifier;
+
+        if (_currentHealth > MaxHealth)
+        {
+            _currentHealth = MaxHealth;
+        }
+
+        HealthChanged?.Invoke(_currentHealth, MaxHealth);
+    }
+
     public void UpgradeHealth(int value, int cost)
     {
         MaxHealth += value;
+        _currentHealth += value;
         HealthChanged?.Invoke(_currentHealth, MaxHealth);
         ReducePoints(cost);
     }
@@ -83,7 +97,7 @@ public class Player : MonoBehaviour
     public void UpgradeLifesteal(int value, int cost)
     {
         CurrentLifesteal += value;
-        LifestealChanged?.Invoke(CurrentArmor);
+        LifestealChanged?.Invoke(CurrentLifesteal);
         ReducePoints(cost);
     }
 

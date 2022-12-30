@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonActivator : MonoBehaviour
+public abstract class ButtonActivator : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private int _cost;

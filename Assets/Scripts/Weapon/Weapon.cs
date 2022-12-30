@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
     private Bullet _currentBullet;
     private List<ShootPoint> _shootPoints = new List<ShootPoint>();
 
+    public event UnityAction<Bullet> BulletChanged;
+
     private void Awake()
     {
         _shootPoints.Add(_startShootPoint);
@@ -101,6 +103,7 @@ public class Weapon : MonoBehaviour
     private void ChangeBullet(Bullet bullet)
     {
         _currentBullet = bullet;
+        BulletChanged?.Invoke(bullet);
     }
 
     private void OnBulletBuyed(Bullet bullet)

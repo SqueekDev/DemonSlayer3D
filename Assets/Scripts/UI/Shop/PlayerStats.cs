@@ -57,6 +57,6 @@ public class PlayerStats : MonoBehaviour
 
     private void OnLifestealChanged(int lifesteal)
     {
-        _lifesteal.text = $"{lifesteal}%";
+        _lifesteal.text = lifesteal.ToString();
     }
 }

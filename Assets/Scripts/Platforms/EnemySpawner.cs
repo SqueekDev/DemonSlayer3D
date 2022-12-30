@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _count;
 
     private Player _player;
+    private WorldBuilder _worldBuilder;
+
+    public event UnityAction BossDefeated;
+
+    private void Awake()
+    {
+        _worldBuilder = GetComponentInParent<WorldBuilder>();
+    }
 
     private void OnEnable()
     {
@@ -29,8 +38,14 @@ public class EnemySpawner : MonoBehaviour
         {
             Enemy template = _templates[Random.Range(0, _templates.Count)];
             Enemy enemy = Instantiate(template, transform.position, Quaternion.identity);
-            enemy.Init(_player);
+            enemy.Init(_player, _worldBuilder);
             enemy.Dying += OnEnemyDied;
+
+            if (enemy.TryGetComponent(out Boss boss))
+            {
+                boss.Defeated += OnBossDefeated;
+            }
+
             yield return delay;
         }
     }
@@ -46,5 +61,12 @@ public class EnemySpawner : MonoBehaviour
         enemy.Dying -= OnEnemyDied;
 
         _player.AddExpirience(enemy.Reward);
+        _player.AddHealth(enemy.MaxHealth);
+    }
+
+    private void OnBossDefeated(Boss boss)
+    {
+        boss.Defeated -= OnBossDefeated;
+        BossDefeated?.Invoke();
     }
 }

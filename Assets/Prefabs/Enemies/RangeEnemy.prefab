@@ -258,6 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _reward: 100
+  _startDamage: 20
+  _startAttackDelay: 1
 --- !u!114 &3716094799258144640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,8 +316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 3716094799258144652}
-  _damage: 0
-  _delay: 1
   _fireBall: {fileID: 6361412209780050229, guid: 4603a26e7c6b5d749929ba935e003aac, type: 3}
   _attackPoint: {fileID: 3716094798458621219}
   _ballSpeed: 15

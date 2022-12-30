@@ -125,5 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afda9cb8d983964b90215832a9c8c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: 46930b20180b59e46b73494adf53abbb, type: 3}
   _freezingModifier: 5
   _startFreezingTime: 1
