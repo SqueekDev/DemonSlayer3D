@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private PlatformTrigger _trigger;
     [SerializeField] private float _delayBetweenSpawn;
     [SerializeField] private int _count;
+    [SerializeField] private int _spawnSpread;
 
     private Player _player;
     private WorldBuilder _worldBuilder;
@@ -36,8 +37,10 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < _count; i++)
         {
+            int spread = Random.Range(-_spawnSpread, _spawnSpread);
+            Vector3 spawnPosition = new Vector3(transform.position.x + spread, transform.position.y, transform.position.z + spread);
             Enemy template = _templates[Random.Range(0, _templates.Count)];
-            Enemy enemy = Instantiate(template, transform.position, Quaternion.identity);
+            Enemy enemy = Instantiate(template, spawnPosition, Quaternion.identity);
             enemy.Init(_player, _worldBuilder);
             enemy.Dying += OnEnemyDied;
 

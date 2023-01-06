@@ -8,11 +8,34 @@ public class RangedAttackState : AttackState
     [SerializeField] private RangeAttackPoint _attackPoint;
     [SerializeField] private float _ballSpeed;
 
+    protected RangeAttackPoint AttackPoint => _attackPoint;
+    protected FireBall FireBall => _fireBall;
+    protected float BallSpeed => _ballSpeed;
+
     protected override void Attack(Player target)
     {
-        Animator.Play("Attack");
+        CheckCorutine(AttackCorutine);
+
+        AttackCorutine = StartCoroutine(RangedAttack(target));
+    }
+
+    protected void LaunchFireBall(Vector3 target)
+    {
         FireBall currentFireBall = Instantiate(_fireBall, _attackPoint.transform.position, Quaternion.identity, transform);
-        Vector3 direction = target.transform.position - _attackPoint.transform.position;
+        Vector3 direction = target - _attackPoint.transform.position;
         currentFireBall.Rigidbody.AddForce(direction.normalized * _ballSpeed, ForceMode.Impulse);
+    }
+
+    private IEnumerator RangedAttack(Player target)
+    {
+        float delayTime = Stats.CurrentAttackDelay;
+        WaitForSeconds castDelay = new WaitForSeconds(delayTime); 
+
+        while (enabled)
+        {
+            Animator.SetTrigger(AttackTriggerName);
+            LaunchFireBall(target.transform.position);
+            yield return castDelay;
+        }
     }
 }

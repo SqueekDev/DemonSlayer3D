@@ -21,7 +21,6 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         _shootPoints.Add(_startShootPoint);
-        ChangeBullet(_bullets[_currentBulletNumber]);
     }
 
     private void OnEnable()
@@ -56,6 +55,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        ChangeBullet(_bullets[_currentBulletNumber]);
         StartCoroutine(ShootCorutine());
     }
 

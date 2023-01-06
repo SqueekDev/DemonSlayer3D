@@ -6,34 +6,44 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator), typeof(Enemy))]
 public class AttackState : EnemyState
 {
-    private float _lastAttackTime;
     private float _angle;
-    private Enemy _stats;
 
+    protected readonly string AttackTriggerName = "Attack";
+    protected Coroutine AttackCorutine;
     protected Animator Animator;
+    protected Enemy Stats { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         Animator = GetComponent<Animator>();
-        _stats = GetComponent<Enemy>();
+        Stats = GetComponent<Enemy>();
+    }
+
+    private void OnEnable()
+    {
+        Attack(Target);
+    }
+
+    private void OnDisable()
+    {
+        StopAttack(Target);
     }
 
     private void Update()
     {
-        if (_lastAttackTime <= 0)
-        {
-            Attack(Target);
-            _lastAttackTime = _stats.CurrentAttackDelay;
-        }
-
-        _lastAttackTime -= Time.deltaTime;
         RotateToPlayer();
     }
 
     protected virtual void Attack(Player target)
     {
-        Animator.Play("Attack");
-        target.ApplyDamage(_stats.CurrentDamage);
+        CheckCorutine(AttackCorutine);
+
+        AttackCorutine = StartCoroutine(MeleeAttack(target));
+    }
+
+    protected void StopAttack(Player target)
+    {
+        CheckCorutine(AttackCorutine);
     }
 
     private void RotateToPlayer()
@@ -41,5 +51,18 @@ public class AttackState : EnemyState
         Vector3 direction = Target.transform.position - transform.position;
         _angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
+    }
+
+    private IEnumerator MeleeAttack(Player target)
+    {
+        float delayTime = Stats.CurrentAttackDelay;
+        WaitForSeconds delay = new WaitForSeconds(delayTime);
+
+        while (enabled)
+        {
+            Animator.SetTrigger("Attack");
+            target.ApplyDamage(Stats.CurrentDamage);
+            yield return delay;
+        }
     }
 }

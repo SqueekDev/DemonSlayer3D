@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         ReducePoints(cost);
     }
 
-    public void ChangeBulletButtonClick()
+    public void ChangeBullet()
     {
         BulletChanged?.Invoke();
     }

@@ -44,15 +44,15 @@ public abstract class Upgrade : ButtonActivator
     {
         _currentLevel++;
 
-        if (_currentLevel >= _maxLevel)
-        {
-            Button.gameObject.SetActive(false);
-            MaxLevelAchieved = true;
-        }
-        else
+        if (_currentLevel < _maxLevel)
         {
             Cost++;
             _currentPoints = 0;
+        }
+        else
+        {
+            Button.gameObject.SetActive(false);
+            MaxLevelAchieved = true;
         }
 
         ShowLevel();
@@ -60,14 +60,14 @@ public abstract class Upgrade : ButtonActivator
 
     private void ShowLevel()
     {
-        if (MaxLevelAchieved)
+        if (MaxLevelAchieved == false)
         {
-            string maxLvlText = "Max.";
-            _level.text = maxLvlText;
+            _level.text = $"Lvl {_currentLevel}";
         }
         else
         {
-            _level.text = $"Lvl {_currentLevel}";
+            string maxLvlText = "Max.";
+            _level.text = maxLvlText;
         }
     }
 }

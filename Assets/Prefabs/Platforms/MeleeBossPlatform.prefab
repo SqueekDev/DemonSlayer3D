@@ -417,10 +417,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _templates:
-  - {fileID: -7206717785825403828, guid: 9db8ed19d8222d248bfe8baa347b3600, type: 3}
+  - {fileID: 1356356536590475547, guid: 52c15fce32e060a41b85fb58e852192c, type: 3}
   _trigger: {fileID: 8143818807156814817}
   _delayBetweenSpawn: 1
   _count: 1
+  _spawnSpread: 0
 --- !u!1 &5541212981665747338
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _templates:
-  - {fileID: 2447184187608172637, guid: a4f9886ae14746f42a5f8341acc753f8, type: 3}
-  - {fileID: 3716094799258144641, guid: dcff15c777ec18842bb05ac70d395521, type: 3}
+  - {fileID: 8481609240153220267, guid: be6d1aeb158c31c49996fd181b008d39, type: 3}
+  - {fileID: 3462602742790807847, guid: c47f03fe00fd05740b79f0b9b0e10ee4, type: 3}
+  - {fileID: 2853526144803521092, guid: b48cf37885f71ea41a139a881334edd9, type: 3}
   _trigger: {fileID: 7740521822469492522}
   _delayBetweenSpawn: 0.5
   _count: 10
+  _spawnSpread: 3
 --- !u!1 &1445965391076189391
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,11 +468,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _templates:
-  - {fileID: 2447184187608172637, guid: a4f9886ae14746f42a5f8341acc753f8, type: 3}
-  - {fileID: 3716094799258144641, guid: dcff15c777ec18842bb05ac70d395521, type: 3}
+  - {fileID: 8481609240153220267, guid: be6d1aeb158c31c49996fd181b008d39, type: 3}
+  - {fileID: 3462602742790807847, guid: c47f03fe00fd05740b79f0b9b0e10ee4, type: 3}
+  - {fileID: 2853526144803521092, guid: b48cf37885f71ea41a139a881334edd9, type: 3}
   _trigger: {fileID: 7740521822469492522}
   _delayBetweenSpawn: 1
   _count: 10
+  _spawnSpread: 4
 --- !u!1 &6235555023535107393
 GameObject:
   m_ObjectHideFlags: 0

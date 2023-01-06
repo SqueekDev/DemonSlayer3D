@@ -14,6 +14,7 @@ public abstract class EnemyState : MonoBehaviour
         {
             Target = target;
             enabled = true;
+
             foreach (var transition in _transitions)
             {
                 transition.enabled = true;
@@ -46,5 +47,13 @@ public abstract class EnemyState : MonoBehaviour
         }
 
         return null;
+    }
+
+    protected void CheckCorutine(Coroutine coroutine)
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 }

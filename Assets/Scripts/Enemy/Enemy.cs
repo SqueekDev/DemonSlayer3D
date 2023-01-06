@@ -76,6 +76,11 @@ public class Enemy : MonoBehaviour, IDamageable
         _burnCorutine = StartCoroutine(Freezing(freezingTime, freezingModifier));
     }
 
+    protected void ChangeSpeed()
+    {
+        _navMeshAgent.speed = CurrentSpeed;
+    }
+
     private IEnumerator Burning(int damage, float burningTime)
     {
         float delayStep = 0.2f;

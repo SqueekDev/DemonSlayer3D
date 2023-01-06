@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject _endGameMenu;
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _shopMenu;
     [SerializeField] private Player _player;
 
     private Scene _scene;
+    private bool _isPaused = false;
+
+    public bool IsPaused => _isPaused;
+
+    public event UnityAction<bool> GamePaused;
 
     private void Awake()
     {
@@ -25,14 +33,28 @@ public class Menu : MonoBehaviour
         _player.PlayerDied += OnPlayerDied;        
     }
 
-    public void OpenPanel(GameObject panel)
+    private void Update()
     {
-        panel.SetActive(true);
-        Time.timeScale = 0;
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _player.ChangeBullet();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            OpenPanel(_pauseMenu);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            OpenPanel(_shopMenu);
+        }
     }
 
     public void ClosePanel(GameObject panel)
     {
+        _isPaused = false;
+        GamePaused?.Invoke(_isPaused);
         panel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -44,14 +66,20 @@ public class Menu : MonoBehaviour
 
     public void Restart()
     {
-        _endGameMenu.SetActive(false);
         SceneManager.LoadScene(_scene.buildIndex);
-        Time.timeScale = 1;
+        ClosePanel(_endGameMenu);
+    }
+
+    private void OpenPanel(GameObject panel)
+    {
+        _isPaused = true;
+        GamePaused?.Invoke(_isPaused);
+        panel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void OnPlayerDied()
     {
-        _endGameMenu.SetActive(true);
-        Time.timeScale = 0;
+        OpenPanel(_endGameMenu);
     }
 }

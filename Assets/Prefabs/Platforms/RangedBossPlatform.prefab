@@ -169,10 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _templates:
-  - {fileID: 8089274867355073959, guid: e28a03c8a0e0d1b4c99aed04e021a6e2, type: 3}
+  - {fileID: 1356356536590475547, guid: 52c15fce32e060a41b85fb58e852192c, type: 3}
   _trigger: {fileID: 6058360600832683951}
   _delayBetweenSpawn: 1
   _count: 1
+  _spawnSpread: 0
 --- !u!1 &3327078669678123859
 GameObject:
   m_ObjectHideFlags: 0
