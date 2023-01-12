@@ -1131,6 +1131,7 @@ GameObject:
   - component: {fileID: 3462602742790807842}
   - component: {fileID: 3462602742790807843}
   - component: {fileID: 3462602742790807852}
+  - component: {fileID: 6826561717221264840}
   m_Layer: 0
   m_Name: MeleeEnemy2
   m_TagString: Untagged
@@ -1187,9 +1188,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.38961107
-  m_Height: 1.9897535
+  m_Height: 2.3826551
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.196451, z: 0}
 --- !u!95 &3462602742790807846
 Animator:
   serializedVersion: 3
@@ -1238,6 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 3462602742790807841}
+  _dyingState: {fileID: 6826561717221264840}
 --- !u!114 &3462602742790807841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3462602742790807843}
-  _transitionRange: 1.5
+  _transitionRange: 2
   _rangeSpread: 0.1
 --- !u!114 &3462602742790807843
 MonoBehaviour:
@@ -1294,7 +1296,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3462602742790807841}
-  _minLostDistance: 2
+  _minLostDistance: 3
+--- !u!114 &6826561717221264840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462602742790807853}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7179adc08b11b42bf6eb8dee356ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+  _collider: {fileID: 3462602742790807845}
 --- !u!1 &3648661103101342985
 GameObject:
   m_ObjectHideFlags: 0

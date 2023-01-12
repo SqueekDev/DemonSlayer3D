@@ -9,10 +9,12 @@ public class Boss : Enemy
     [SerializeField] private int _boostModifier;
     [SerializeField] private int _halfHPShieldCapacity;
     [SerializeField] private int _quarterHPShieldCapacity;
+    [SerializeField] private Shield _shield;
 
     private int _shieldCapacity;
     private bool _halfHPReached = false;
     private bool _quarterHPReached = false;
+    private bool _shieldActivated = false;
 
     public bool HalfHPReached => _halfHPReached;
     public bool QuarterHPReached => _quarterHPReached;
@@ -44,14 +46,19 @@ public class Boss : Enemy
             int halfHpDivider = 2;
             int quarterHpDivider = 4;
 
+            if (_shieldActivated == true)
+            {
+                _shield.gameObject.SetActive(false);
+                _shieldActivated = false;
+            }
+
             if (CurrentHealth <= MaxHealth / halfHpDivider && _halfHPReached == false)
             {
                 UpgradeStats();
                 CurrentAttackDelay /= _boostModifier;
                 _halfHPReached = true;
                 _shieldCapacity = _halfHPShieldCapacity;
-                MaxShieldCapacity = _halfHPShieldCapacity;
-                ShieldValueChanged?.Invoke(_shieldCapacity, MaxShieldCapacity);
+                ActivateShield();
             }
 
             if (CurrentHealth <= MaxHealth / quarterHpDivider && _quarterHPReached == false)
@@ -59,8 +66,7 @@ public class Boss : Enemy
                 UpgradeStats();
                 _quarterHPReached = true;
                 _shieldCapacity = _quarterHPShieldCapacity;
-                MaxShieldCapacity = _quarterHPShieldCapacity;
-                ShieldValueChanged?.Invoke(_shieldCapacity, MaxShieldCapacity);
+                ActivateShield();
             }
 
             base.ApplyDamage(damage);
@@ -72,7 +78,17 @@ public class Boss : Enemy
     {
         CurrentDamage *= _boostModifier;
         CurrentSpeed += _boostModifier;
+        _halfHPShieldCapacity += _boostModifier;
+        _quarterHPShieldCapacity += _boostModifier;
         ChangeSpeed();
+    }
+
+    private void ActivateShield()
+    {
+        MaxShieldCapacity = _shieldCapacity;
+        _shield.gameObject.SetActive(true);
+        _shieldActivated = true;
+        ShieldValueChanged?.Invoke(_shieldCapacity, MaxShieldCapacity);
     }
 
     private void OnDying(Enemy enemy)

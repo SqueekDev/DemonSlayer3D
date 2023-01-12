@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour, IDamageable
         if (_health <= 0)
         {
             Dying?.Invoke(this);
-            Destroy(gameObject);
         }
     }
 

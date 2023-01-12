@@ -1185,6 +1185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2511051682996126643}
+  - component: {fileID: 4248705880270109642}
   - component: {fileID: 3808392314009918802}
   - component: {fileID: 756806052214947109}
   - component: {fileID: 2853526144803521092}
@@ -1193,7 +1194,7 @@ GameObject:
   - component: {fileID: 8218803880336510738}
   - component: {fileID: 2590725936427509623}
   - component: {fileID: 5032477503115838423}
-  - component: {fileID: 4248705880270109642}
+  - component: {fileID: 6481214052756217974}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -1218,6 +1219,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4248705880270109642
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995699277664213257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.42791265
+  m_Height: 2.4632938
+  m_Direction: 1
+  m_Center: {x: -0.0018324256, y: 1.2268969, z: 0.0014512539}
 --- !u!195 &3808392314009918802
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1288,6 +1303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 5119548559507058445}
+  _dyingState: {fileID: 6481214052756217974}
 --- !u!114 &5119548559507058445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2590725936427509623}
-  _transitionRange: 15
+  _transitionRange: 20
   _rangeSpread: 1
 --- !u!114 &2590725936427509623
 MonoBehaviour:
@@ -1347,21 +1363,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 5119548559507058445}
-  _minLostDistance: 20
---- !u!136 &4248705880270109642
-CapsuleCollider:
+  _minLostDistance: 30
+--- !u!114 &6481214052756217974
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2995699277664213257}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.42791265
-  m_Height: 2.0976667
-  m_Direction: 1
-  m_Center: {x: -0.0018324256, y: 1.0440834, z: 0.0014512539}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7179adc08b11b42bf6eb8dee356ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+  _collider: {fileID: 4248705880270109642}
 --- !u!1 &3050825712739039826
 GameObject:
   m_ObjectHideFlags: 0

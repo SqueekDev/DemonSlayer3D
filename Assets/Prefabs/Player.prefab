@@ -1361,11 +1361,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e980378afb3fae4b86184301b1ba9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootSpeed: 50
+  _shootSpeed: 80
   _player: {fileID: 2330576808248604045}
   _startShootPoint: {fileID: 7162967157072345606}
   _bullets:
-  - {fileID: 5751652023709555840, guid: a7a63e5652ed56b40b1e66d17d6bd3cc, type: 3}
+  - {fileID: 8202703286602072920, guid: a39581b8e2d529d44b89844c2c2c7808, type: 3}
   _buyBullets:
   - {fileID: 0}
   - {fileID: 0}
@@ -2649,7 +2649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098be186a2e23294fb94ebd6fc7cabad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 7
+  _moveSpeed: 6
+  _rotateSpeed: 1
+  _menu: {fileID: 0}
 --- !u!95 &8914187949742279635
 Animator:
   serializedVersion: 3
@@ -2681,7 +2683,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.31
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

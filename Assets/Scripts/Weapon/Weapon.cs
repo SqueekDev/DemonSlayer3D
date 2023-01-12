@@ -76,6 +76,7 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < _shootPoints.Count; i++)
         {
             Bullet currentBullet = Instantiate(_currentBullet, _shootPoints[i].transform.position, Quaternion.identity, transform);
+            currentBullet.transform.rotation = _shootPoints[i].transform.rotation;
             Vector3 direction = _shootPoints[i].TargetPoint.position - _shootPoints[i].transform.position;
             currentBullet.Rigidbody.AddForce(direction.normalized * _shootSpeed, ForceMode.Impulse);
         }        

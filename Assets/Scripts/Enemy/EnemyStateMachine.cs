@@ -6,15 +6,32 @@ using UnityEngine;
 public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private EnemyState _firstState;
+    [SerializeField] private DyingState _dyingState;
 
+    private Enemy _stats;
     private Player _target;
     private EnemyState _currentState;
 
     public EnemyState CurrentState => _currentState;
 
+    private void Awake()
+    {
+        _stats = GetComponent<Enemy>();
+    }
+
+    private void OnEnable()
+    {
+        _stats.Dying += OnDying;
+    }
+
+    private void OnDisable()
+    {
+        _stats.Dying -= OnDying;        
+    }
+
     private void Start()
     {
-        _target = GetComponent<Enemy>().Target;
+        _target = _stats.Target;
         Reset(_firstState);
     }
 
@@ -56,5 +73,10 @@ public class EnemyStateMachine : MonoBehaviour
         {
             _currentState.Enter(_target);
         }
+    }
+
+    private void OnDying(Enemy enemy)
+    {
+        Transit(_dyingState);
     }
 }

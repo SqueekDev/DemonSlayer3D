@@ -7,6 +7,7 @@ public class WorldBuilder : MonoBehaviour
 {
     [SerializeField] private int _bossPlatformNumber;
     [SerializeField] private int _statsModifier;
+    [SerializeField] private int _spawnPlatformCorrection;
     [SerializeField] private Player _player;
     [SerializeField] private List<Platform> _platformTemplates;
     [SerializeField] private List<Platform> _bossPlatformTemplates;
@@ -28,7 +29,7 @@ public class WorldBuilder : MonoBehaviour
 
     private void Update()
     {
-        if (_player.transform.position.z > _spawnedPlatforms[_spawnedPlatforms.Count - 1].transform.position.z)
+        if (_player.transform.position.z > (_spawnedPlatforms[_spawnedPlatforms.Count - 1].transform.position.z - _spawnPlatformCorrection))
         {
             _currentPlatformNumber++;
 
@@ -43,7 +44,7 @@ public class WorldBuilder : MonoBehaviour
             }
         }
 
-        int platformsLimit = 4;
+        int platformsLimit = 8;
 
         if (_spawnedPlatforms.Count >= platformsLimit)
         {
@@ -53,7 +54,7 @@ public class WorldBuilder : MonoBehaviour
 
     private void SpawnPlatform(List<Platform> platforms)
     {
-        Platform newPlatform = Instantiate(platforms[Random.Range(0, _platformTemplates.Count)], transform);
+        Platform newPlatform = Instantiate(platforms[Random.Range(0, platforms.Count)], transform);
         newPlatform.transform.position = _spawnedPlatforms[_spawnedPlatforms.Count - 1].EndPoint.transform.position - newPlatform.StartPoint.localPosition;
         Init(newPlatform);
         _spawnedPlatforms.Add(newPlatform);
