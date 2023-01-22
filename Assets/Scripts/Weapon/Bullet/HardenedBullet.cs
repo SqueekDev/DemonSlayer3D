@@ -20,16 +20,20 @@ public class HardenedBullet : Bullet
             if (_penetrationCount > 0)
             {
                 damageable.ApplyDamage(Damage);
+                HitEnemyEffect.Play();
                 _penetrationCount--;
             }
             else
             {
                 damageable.ApplyDamage(Damage);
-                Destroy(gameObject);
+                HitEnemy(HitEnemyEffect);
             }
         }
-
-        if (other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
+        else if (other.gameObject.TryGetComponent(out Stone stone))
+        {
+            HitEnemy(HitEnemyEffect);
+        }
+        else if(other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
         {
             Destroy(gameObject);
         }

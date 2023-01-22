@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
     public event UnityAction<int> UpgradePointsChanged;
     public event UnityAction<int, int> HealthChanged;
 
+    private void Awake()
+    {
+        UpgradePoints = 0;
+    }
+
     private void Start()
     {
         MaxHealth = _startHealth;

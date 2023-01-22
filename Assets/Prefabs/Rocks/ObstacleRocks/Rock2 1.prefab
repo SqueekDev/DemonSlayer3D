@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7460101360575478916}
   - component: {fileID: 8620884216315216518}
   - component: {fileID: 1845278339250539068}
-  - component: {fileID: -4159063479476111235}
+  - component: {fileID: 1461384073377433228}
   m_Layer: 8
   m_Name: Rock2 1
   m_TagString: Untagged
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38d4ea15903ef5408fa762191d71539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4159063479476111235
+--- !u!114 &1461384073377433228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

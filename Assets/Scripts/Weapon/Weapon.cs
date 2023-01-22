@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private float _shootSpeed;
+    [SerializeField] private float _shootDelay;
     [SerializeField] private Player _player;
     [SerializeField] private ShootPoint _startShootPoint;
     [SerializeField] private List<Bullet> _bullets;
@@ -15,6 +16,8 @@ public class Weapon : MonoBehaviour
     private int _currentBulletNumber = 0;
     private Bullet _currentBullet;
     private List<ShootPoint> _shootPoints = new List<ShootPoint>();
+
+    public float ShootDelay => _shootDelay;
 
     public event UnityAction<Bullet> BulletChanged;
 
@@ -61,8 +64,7 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ShootCorutine()
     {
-        float delayStep = 0.2f;
-        WaitForSeconds delay = new WaitForSeconds(delayStep);
+        WaitForSeconds delay = new WaitForSeconds(_shootDelay);
 
         while (true)
         {

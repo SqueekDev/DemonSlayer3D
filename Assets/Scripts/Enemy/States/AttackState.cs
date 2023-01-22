@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator), typeof(Enemy))]
 public class AttackState : EnemyState
 {
+    [SerializeField] private List<ParticleSystem> _effects;
+
     private float _angle;
 
     protected readonly string AttackTriggerName = "Attack";
@@ -22,11 +24,21 @@ public class AttackState : EnemyState
     private void OnEnable()
     {
         Attack(Target);
+
+        for (int i = 0; i < _effects.Count; i++)
+        {
+            _effects[i].Play();
+        }
     }
 
     private void OnDisable()
     {
         StopAttack(Target);
+
+        for (int i = 0; i < _effects.Count; i++)
+        {
+            _effects[i].Stop();
+        }
     }
 
     private void Update()

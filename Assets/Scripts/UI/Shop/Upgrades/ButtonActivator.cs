@@ -12,7 +12,7 @@ public abstract class ButtonActivator : MonoBehaviour
     
     public int Cost { get; protected set; }
 
-    private void Start()
+    private void Awake()
     {
         Cost = _cost;
     }

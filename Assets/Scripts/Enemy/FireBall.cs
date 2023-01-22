@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FireBall : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] private ParticleSystem _ballEffect;
+
     private Enemy _stats;
 
     public Rigidbody Rigidbody { get; private set; }
@@ -20,13 +23,22 @@ public class FireBall : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(_stats.CurrentDamage);
-            Destroy(gameObject);
+            StartCoroutine(ExplodeCorutine(player));
         }
-
-        if (other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
+        else if (other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator ExplodeCorutine(Player player)
+    {
+        player.ApplyDamage(_stats.CurrentDamage);
+        _explosionEffect.Play();
+        _ballEffect.Stop();
+        Rigidbody.velocity = new Vector3(0, 0, 0);
+        float delay = _explosionEffect.main.duration;
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }

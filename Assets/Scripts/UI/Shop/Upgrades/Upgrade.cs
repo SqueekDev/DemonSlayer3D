@@ -18,7 +18,7 @@ public abstract class Upgrade : ButtonActivator
     public bool MaxLevelAchieved { get; private set; }
     public Player Player => _player;
 
-    private void Awake()
+    private void Start()
     {
         MaxLevelAchieved = false;
         _slider.value = 0;

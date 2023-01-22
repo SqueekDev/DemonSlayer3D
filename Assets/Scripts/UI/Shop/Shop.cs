@@ -18,6 +18,11 @@ public class Shop : MonoBehaviour
         _player.UpgradePointsChanged -= OnUpgradePointsChanged;
     }
 
+    private void Start()
+    {
+        OnUpgradePointsChanged(_player.UpgradePoints);
+    }
+
     private void OnUpgradePointsChanged(int points)
     {
         for (int i = 0; i < _buttons.Count; i++)

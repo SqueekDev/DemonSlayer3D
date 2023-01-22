@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoarState : EnemyState
 {
     [SerializeField] private int _castCount;
-    [SerializeField] private int _damageDistance;
+    [SerializeField] private DamageField _damageField;
 
     private readonly string _triggerName = "Roar";
     private Animator _animator;
@@ -41,13 +41,8 @@ public class RoarState : EnemyState
         while (_castCount > 0)
         {
             _animator.SetTrigger(_triggerName);
+            Instantiate(_damageField, transform.position, Quaternion.identity, transform);
             yield return castDelay;
-
-            if (Vector3.Distance(transform.position, target.transform.position) < _damageDistance)
-            {
-                target.ApplyDamage(_stats.CurrentDamage);
-            }
-
             _castCount--;
         }
     }
