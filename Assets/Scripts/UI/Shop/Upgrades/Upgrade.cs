@@ -15,6 +15,7 @@ public abstract class Upgrade : ButtonActivator
     private int _currentPoints = 0;
     private int _currentLevel = 0;
     private int _pointsToNextLvl = 5;
+
     public bool MaxLevelAchieved { get; private set; }
     public Player Player => _player;
 
@@ -31,9 +32,7 @@ public abstract class Upgrade : ButtonActivator
         UpgadeAbility(_upgradeValue, Cost);
 
         if (_currentPoints >= _pointsToNextLvl)
-        {
             IncreaceAbilityLevel();
-        }
 
         _slider.value = (float)_currentPoints / _pointsToNextLvl;
     }

@@ -47,9 +47,7 @@ public class WorldBuilder : MonoBehaviour
         int platformsLimit = 8;
 
         if (_spawnedPlatforms.Count >= platformsLimit)
-        {
             RemovePlatform();
-        }
     }
 
     private void SpawnPlatform(List<Platform> platforms)

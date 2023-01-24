@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public abstract class ButtonActivator : MonoBehaviour
 {
-    [SerializeField] private Button _button;
     [SerializeField] private int _cost;
+    [SerializeField] private Button _button;
 
     public Button Button => _button;
     

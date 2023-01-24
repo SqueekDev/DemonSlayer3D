@@ -7,8 +7,6 @@ public class Stone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out EnemySpawner enemySpawner))
-        {
             Destroy(gameObject);
-        }
     }
 }

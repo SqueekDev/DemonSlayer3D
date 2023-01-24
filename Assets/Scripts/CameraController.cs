@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private Menu _menu;
 
-    private Vector3 _offset;
     private float _angleY;
+    private Vector3 _offset;
 
     private void Awake()
     {
@@ -42,12 +42,8 @@ public class CameraController : MonoBehaviour
     private void OnGamePauded(bool isPaused)
     {
         if (isPaused)
-        {
             Cursor.lockState = CursorLockMode.None;
-        }
         else
-        {
             Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 }

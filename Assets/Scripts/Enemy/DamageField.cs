@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class DamageField : MonoBehaviour
 {
-    [SerializeField] private Vector3 _maxScale;
     [SerializeField] private float _timeToIncrease;
+    [SerializeField] private Vector3 _maxScale;
 
-    private Enemy _stats;
     private float _currentTime = 0;
+    private Enemy _stats;
 
     private void Awake()
     {
@@ -22,16 +22,12 @@ public class DamageField : MonoBehaviour
         _currentTime += Time.deltaTime;
 
         if (_currentTime > _timeToIncrease)
-        {
             Destroy(gameObject);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
-        {
             player.ApplyDamage(_stats.CurrentDamage);
-        }
     }
 }

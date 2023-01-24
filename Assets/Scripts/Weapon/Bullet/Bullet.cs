@@ -7,9 +7,13 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Sprite _icon;
     [SerializeField] private ParticleSystem _hitEnemyEffect;
+    [SerializeField] private AudioSource _enemyHitSound;
+    [SerializeField] private AudioSource _stoneHitSound;
 
     protected Player Player;
     protected ParticleSystem HitEnemyEffect => _hitEnemyEffect;
+    protected AudioSource EnemyHitSound => _enemyHitSound;
+    protected AudioSource StoneHitSound => _stoneHitSound;
 
     public Sprite Icon => _icon;
     public int Damage { get; private set; }
@@ -28,11 +32,11 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
         {
             damageable.ApplyDamage(Damage);
-            HitEnemy(_hitEnemyEffect);
+            HitEnemy(_hitEnemyEffect, _enemyHitSound);
         }
         else if (other.gameObject.TryGetComponent(out Stone stone))
         {
-            HitEnemy(_hitEnemyEffect);
+            HitEnemy(_hitEnemyEffect, _stoneHitSound);
         }
         else if (other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
         {
@@ -40,14 +44,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    protected void HitEnemy(ParticleSystem particleSystem)
+    protected void HitEnemy(ParticleSystem particleSystem, AudioSource audioSource)
     {
-        StartCoroutine(HitEnemyCorutine(particleSystem));
+        StartCoroutine(HitEnemyCorutine(particleSystem, audioSource));
     }
 
-    private IEnumerator HitEnemyCorutine(ParticleSystem particleSystem)
+    private IEnumerator HitEnemyCorutine(ParticleSystem particleSystem, AudioSource audioSource)
     {
         Rigidbody.velocity = new Vector3(0, 0, 0);
+        audioSource.Play();
         particleSystem.Play();
         float delay = particleSystem.main.duration;
         yield return new WaitForSeconds(delay);

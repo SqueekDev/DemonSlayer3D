@@ -6,9 +6,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
 public class MoveState : EnemyState
 {
+    private readonly string _movingBooleanName = "IsMoving";
     private NavMeshAgent _agent;
     private Animator _animator;
-    private readonly string _movingBooleanName = "IsMoving";
 
     private void Awake()
     {

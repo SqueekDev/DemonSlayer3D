@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class AttackState : EnemyState
 {
     [SerializeField] private List<ParticleSystem> _effects;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private List<AudioClip> _attackSounds;
 
     private float _angle;
 
@@ -49,13 +51,18 @@ public class AttackState : EnemyState
     protected virtual void Attack(Player target)
     {
         CheckCorutine(AttackCorutine);
-
         AttackCorutine = StartCoroutine(MeleeAttack(target));
     }
 
     protected void StopAttack(Player target)
     {
         CheckCorutine(AttackCorutine);
+    }
+
+    protected void PlayAttackSound()
+    {
+        AudioClip attackSound = _attackSounds[Random.Range(0, _attackSounds.Count)];
+        _audioSource.PlayOneShot(attackSound);
     }
 
     private void RotateToPlayer()
@@ -73,6 +80,7 @@ public class AttackState : EnemyState
         while (enabled)
         {
             Animator.SetTrigger("Attack");
+            PlayAttackSound();
             target.ApplyDamage(Stats.CurrentDamage);
             yield return delay;
         }

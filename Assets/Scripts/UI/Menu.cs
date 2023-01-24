@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +11,12 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _shopMenu;
     [SerializeField] private Player _player;
+    [SerializeField] private AudioMixerGroup _mixer;
 
-    private Scene _scene;
     private bool _isPaused = false;
+    private readonly string _musicGroupName = "MusicVolume";
+    private readonly string _effectsGroupName = "EffectsVolume";
+    private Scene _scene;
 
     public bool IsPaused => _isPaused;
 
@@ -36,19 +40,13 @@ public class Menu : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-        {
             _player.ChangeBullet();
-        }
 
         if (Input.GetKeyDown(KeyCode.P))
-        {
             OpenPanel(_pauseMenu);
-        }
 
         if (Input.GetKeyDown(KeyCode.M))
-        {
             OpenPanel(_shopMenu);
-        }
     }
 
     public void ClosePanel(GameObject panel)
@@ -68,6 +66,27 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(_scene.buildIndex);
         ClosePanel(_endGameMenu);
+    }
+
+    public void ToggleMusic(bool enabled)
+    {
+        ToggleSound(enabled, _musicGroupName);
+    }
+
+    public void ToggleEffects(bool enabled)
+    {
+        ToggleSound(enabled, _effectsGroupName);
+    }
+
+    private void ToggleSound(bool enabled, string groupName)
+    {
+        float enabledVolumeLevel = 0;
+        float disabledVolumeLevel = -80;
+
+        if (enabled)
+            _mixer.audioMixer.SetFloat(groupName, enabledVolumeLevel);
+        else
+            _mixer.audioMixer.SetFloat(groupName, disabledVolumeLevel);
     }
 
     private void OpenPanel(GameObject panel)

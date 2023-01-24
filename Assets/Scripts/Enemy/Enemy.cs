@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour, IDamageable
     
     protected float CurrentSpeed;
 
-    public Player Target => _target;
     public int Reward => _reward;
     public int CurrentHealth => _health;
+    public Player Target => _target;
     public int CurrentDamage { get; protected set; }
     public float CurrentAttackDelay { get; protected set; }
     public int MaxHealth { get; private set; }
@@ -50,17 +50,13 @@ public class Enemy : MonoBehaviour, IDamageable
         _health -= damage;
 
         if (_health <= 0)
-        {
             Dying?.Invoke(this);
-        }
     }
 
     public void Burn(int damage, float burningTime)
     {
         if (_burnCorutine != null)
-        {
             StopCoroutine(Burning(damage, burningTime));
-        }
 
         _burnCorutine = StartCoroutine(Burning(damage, burningTime));
     }
@@ -68,9 +64,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Freeze(float freezingTime, float freezingModifier)
     {
         if (_freezeCorutine != null)
-        {
             StopCoroutine(Freezing(freezingTime, freezingModifier));
-        }
 
         _burnCorutine = StartCoroutine(Freezing(freezingTime, freezingModifier));
     }

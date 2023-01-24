@@ -9,8 +9,6 @@ public class RoarOutTransition : EnemyTransition
     private void Update()
     {
         if (_state.CastCount <= 0)
-        {
             NeedTransit = true;
-        }
     }
 }

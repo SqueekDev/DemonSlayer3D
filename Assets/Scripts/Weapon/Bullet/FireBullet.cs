@@ -19,8 +19,6 @@ public class FireBullet : Bullet
         base.OnTriggerEnter(other);
 
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
-        {
             damageable.Burn(Damage / _burningDamageModifier, _burningTime);
-        }
     }
 }

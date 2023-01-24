@@ -11,8 +11,6 @@ public class FireBlastInTransition : EnemyTransition
     private void Update()
     {
         if (_stats.QuarterHPReached && _blastState.FireBallsAmount > 0 && _stormState.FireBallsAmount <= 0)
-        {
             NeedTransit = true;
-        }
     }
 }

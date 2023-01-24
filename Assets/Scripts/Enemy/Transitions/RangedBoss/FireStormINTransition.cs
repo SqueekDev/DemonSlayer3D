@@ -10,8 +10,6 @@ public class FireStormINTransition : EnemyTransition
     private void Update()
     {
         if (_stats.HalfHPReached && _state.FireBallsAmount > 0)
-        {
             NeedTransit = true;
-        }
     }
 }

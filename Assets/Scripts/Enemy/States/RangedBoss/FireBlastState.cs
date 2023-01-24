@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireBlastState : RangedAttackState
 {
     [SerializeField] private int _fireBallsAmount;
+    [SerializeField] private AudioSource _audio;
 
     private readonly string _triggerName = "FireBlast";
 
@@ -13,7 +14,6 @@ public class FireBlastState : RangedAttackState
     protected override void Attack(Player target)
     {
         CheckCorutine(AttackCorutine);
-
         AttackCorutine = StartCoroutine(FireBlast(target));
     }
 
@@ -26,12 +26,14 @@ public class FireBlastState : RangedAttackState
 
         while (_fireBallsAmount > 0)
         {
-            Animator.SetTrigger(_triggerName);
-            yield return skillCastDelay;
             int fireBallsInSpell = 20;
 
             if (fireBallsInSpell < _fireBallsAmount)
             {
+                Animator.SetTrigger(_triggerName);
+                yield return skillCastDelay;
+                _audio.Play();
+
                 for (int i = 0; i < fireBallsInSpell; i++)
                 {
                     int spreadValue = 10;

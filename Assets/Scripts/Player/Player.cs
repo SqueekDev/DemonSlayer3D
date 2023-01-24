@@ -53,9 +53,7 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth, MaxHealth);
 
         if (_currentHealth <= 0)
-        {
             PlayerDied?.Invoke();
-        }
     }
 
     public void AddExpirience(int points)
@@ -77,9 +75,7 @@ public class Player : MonoBehaviour
         _currentHealth += value * CurrentLifesteal / percentModifier;
 
         if (_currentHealth > MaxHealth)
-        {
             _currentHealth = MaxHealth;
-        }
 
         HealthChanged?.Invoke(_currentHealth, MaxHealth);
     }

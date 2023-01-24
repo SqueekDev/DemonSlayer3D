@@ -41,9 +41,7 @@ public abstract class EnemyState : MonoBehaviour
         foreach (var transition in _transitions)
         {
             if (transition.NeedTransit)
-            {
                 return transition.TargetState;
-            }
         }
 
         return null;
@@ -52,8 +50,6 @@ public abstract class EnemyState : MonoBehaviour
     protected void CheckCorutine(Coroutine coroutine)
     {
         if (coroutine != null)
-        {
             StopCoroutine(coroutine);
-        }
     }
 }

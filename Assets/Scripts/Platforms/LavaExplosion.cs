@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LavaExplosion : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _explosionEffect;
     [SerializeField] private float _minTimeDelay;
     [SerializeField] private float _maxTimeDelay;
+    [SerializeField] private ParticleSystem _explosionEffect;
 
     private void OnEnable()
     {

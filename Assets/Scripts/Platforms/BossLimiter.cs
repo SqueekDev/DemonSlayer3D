@@ -7,7 +7,6 @@ public class BossLimiter : MonoBehaviour
     [SerializeField] private EnemySpawner _spawner;
     [SerializeField] private Collider _collider;
 
-
     private void OnEnable()
     {
         _spawner.BossDefeated += OnBossDefeated;

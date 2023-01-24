@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StoneSpawner : MonoBehaviour
 {
-    [SerializeField] private List<Stone> _templates;
-    [SerializeField] private Transform _startPoint;
-    [SerializeField] private Transform _endPoint;
     [SerializeField] private float _spawnSpread;
     [SerializeField] private int _spawnPositionOffset;
     [SerializeField] private int _rotationModifier;
+    [SerializeField] private Transform _startPoint;
+    [SerializeField] private Transform _endPoint;
+    [SerializeField] private List<Stone> _templates;
 
     private void Awake()
     {

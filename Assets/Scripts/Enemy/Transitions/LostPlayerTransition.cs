@@ -9,8 +9,6 @@ public class LostPlayerTransition : EnemyTransition
     private void Update()
     {
         if (Vector3.Distance(Tagret.transform.position, transform.position) > _minLostDistance)
-        {
             NeedTransit = true;
-        }
     }
 }

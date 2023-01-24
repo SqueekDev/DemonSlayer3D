@@ -19,8 +19,6 @@ public class IceBullet : Bullet
         base.OnTriggerEnter(other);
 
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
-        {
             damageable.Freeze(_freezingTime, _freezingModifier);
-        }
     }
 }

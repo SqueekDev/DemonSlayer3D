@@ -7,6 +7,7 @@ public class RoarState : EnemyState
 {
     [SerializeField] private int _castCount;
     [SerializeField] private DamageField _damageField;
+    [SerializeField] private AudioSource _audio;
 
     private readonly string _triggerName = "Roar";
     private Animator _animator;
@@ -24,7 +25,6 @@ public class RoarState : EnemyState
     private void OnEnable()
     {
         CheckCorutine(_roarCorutine);
-
         _roarCorutine = StartCoroutine(CastCoturine(Target));
     }
 
@@ -41,6 +41,7 @@ public class RoarState : EnemyState
         while (_castCount > 0)
         {
             _animator.SetTrigger(_triggerName);
+            _audio.Play();
             Instantiate(_damageField, transform.position, Quaternion.identity, transform);
             yield return castDelay;
             _castCount--;

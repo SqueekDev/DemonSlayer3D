@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class RangedAttackState : AttackState
 {
+    [SerializeField] private float _ballSpeed;
     [SerializeField] private FireBall _fireBall;
     [SerializeField] private RangeAttackPoint _attackPoint;
-    [SerializeField] private float _ballSpeed;
 
-    protected RangeAttackPoint AttackPoint => _attackPoint;
-    protected FireBall FireBall => _fireBall;
     protected float BallSpeed => _ballSpeed;
+    protected FireBall FireBall => _fireBall;
+    protected RangeAttackPoint AttackPoint => _attackPoint;
 
     protected override void Attack(Player target)
     {
         CheckCorutine(AttackCorutine);
-
         AttackCorutine = StartCoroutine(RangedAttack(target));
     }
 
@@ -34,6 +33,7 @@ public class RangedAttackState : AttackState
         while (enabled)
         {
             Animator.SetTrigger(AttackTriggerName);
+            PlayAttackSound();
             LaunchFireBall(target.transform.position);
             yield return castDelay;
         }

@@ -9,8 +9,6 @@ public class FireBlastOutTransition : EnemyTransition
     private void Update()
     {
         if (_state.FireBallsAmount <= 0)
-        {
             NeedTransit = true;
-        }
     }
 }

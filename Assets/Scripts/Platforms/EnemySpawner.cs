@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private List<Enemy> _templates;
-    [SerializeField] private PlatformTrigger _trigger;
     [SerializeField] private float _delayBetweenSpawn;
     [SerializeField] private int _count;
     [SerializeField] private int _spawnSpread;
+    [SerializeField] private List<Enemy> _templates;
+    [SerializeField] private PlatformTrigger _trigger;
 
     private Player _player;
     private WorldBuilder _worldBuilder;
@@ -45,9 +45,7 @@ public class EnemySpawner : MonoBehaviour
             enemy.Dying += OnEnemyDied;
 
             if (enemy.TryGetComponent(out Boss boss))
-            {
                 boss.Defeated += OnBossDefeated;
-            }
 
             yield return delay;
         }
@@ -62,7 +60,6 @@ public class EnemySpawner : MonoBehaviour
     private void OnEnemyDied(Enemy enemy)
     {
         enemy.Dying -= OnEnemyDied;
-
         _player.AddExpirience(enemy.Reward);
         _player.AddHealth(enemy.MaxHealth);
     }

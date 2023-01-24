@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private List<Bullet> _bullets;
     [SerializeField] private List<BuyBullet> _buyBullets;
     [SerializeField] private List<ShootingMode> _shootingModes;
+    [SerializeField] private AudioSource _shootSound;
 
     private int _currentBulletNumber = 0;
     private Bullet _currentBullet;
@@ -69,6 +70,7 @@ public class Weapon : MonoBehaviour
         while (true)
         {
             Shoot();
+            _shootSound.Play();
             yield return delay;
         }
     }
@@ -92,13 +94,9 @@ public class Weapon : MonoBehaviour
     private void OnBulletChange()
     {
         if (_currentBulletNumber == _bullets.Count - 1)
-        {
             _currentBulletNumber = 0;
-        }
         else
-        {
             _currentBulletNumber++;
-        }
 
         ChangeBullet(_bullets[_currentBulletNumber]);
     }

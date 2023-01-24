@@ -21,17 +21,18 @@ public class HardenedBullet : Bullet
             {
                 damageable.ApplyDamage(Damage);
                 HitEnemyEffect.Play();
+                EnemyHitSound.Play();
                 _penetrationCount--;
             }
             else
             {
                 damageable.ApplyDamage(Damage);
-                HitEnemy(HitEnemyEffect);
+                HitEnemy(HitEnemyEffect, EnemyHitSound);
             }
         }
         else if (other.gameObject.TryGetComponent(out Stone stone))
         {
-            HitEnemy(HitEnemyEffect);
+            HitEnemy(HitEnemyEffect, StoneHitSound);
         }
         else if(other.gameObject.TryGetComponent(out BulletDestroyer destroyer))
         {

@@ -28,13 +28,9 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < _buttons.Count; i++)
         {
             if (points >= _buttons[i].Cost)
-            {
                 _buttons[i].ActivateButton();
-            }
             else
-            {
                 _buttons[i].DeactivateButton();
-            }
         }
     }
 }

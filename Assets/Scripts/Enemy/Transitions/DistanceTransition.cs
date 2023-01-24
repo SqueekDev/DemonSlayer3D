@@ -15,8 +15,6 @@ public class DistanceTransition : EnemyTransition
     private void Update()
     {
         if (Vector3.Distance(transform.position, Tagret.transform.position) < _transitionRange)
-        {
             NeedTransit = true;
-        }
     }
 }

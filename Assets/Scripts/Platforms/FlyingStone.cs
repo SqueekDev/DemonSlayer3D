@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FlyingStone : Stone
 {
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _minAnimationSpeed;
     [SerializeField] private float _maxAnimationSpeed;
+    [SerializeField] private Animator _animator;
 
     private void Start()
     {
