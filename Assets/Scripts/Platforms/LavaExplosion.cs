@@ -8,14 +8,21 @@ public class LavaExplosion : MonoBehaviour
     [SerializeField] private float _maxTimeDelay;
     [SerializeField] private ParticleSystem _explosionEffect;
 
-    private void OnEnable()
+    private Coroutine _explosionCorutine;
+
+    private void Start()
     {
-        StartCoroutine(BurstCorutine());
+        Explode();
     }
 
-    private void OnDisable()
+    private void Explode()
     {
-        StopCoroutine(BurstCorutine());        
+        if (_explosionCorutine != null)
+        {
+            StopCoroutine(_explosionCorutine);
+        }
+
+        _explosionCorutine = StartCoroutine(BurstCorutine());
     }
 
     private IEnumerator BurstCorutine()

@@ -26,7 +26,8 @@ public class DyingState : EnemyState
         _animator.SetTrigger(_dieTriggetName);
         _audio.Play();
         _collider.enabled = false;
-        yield return new WaitForSeconds(2f);
+        float timeToDestroy = 2f;
+        yield return new WaitForSeconds(timeToDestroy);
         Destroy(gameObject);
     }
 }

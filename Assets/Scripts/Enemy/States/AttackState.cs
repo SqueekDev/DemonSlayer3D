@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator), typeof(Enemy))]
 public class AttackState : EnemyState
@@ -79,7 +78,7 @@ public class AttackState : EnemyState
 
         while (enabled)
         {
-            Animator.SetTrigger("Attack");
+            Animator.SetTrigger(AttackTriggerName);
             PlayAttackSound();
             target.ApplyDamage(Stats.CurrentDamage);
             yield return delay;
